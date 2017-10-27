@@ -1,0 +1,32 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block title %} showdoc登录 | 全栈运维{% endblock %}
+
+
+{% block content %}
+
+
+<div class="container">
+	<div class="col-md-4 col-md-offset-4 showdoc-login">
+		
+		<form id="form" method="POST" action="/accounts/login">
+			{% csrf_token %}
+			<h2 class="text-center">ShowDoc Login</h2>
+			<div class="form-group">
+				<input class="form-control" name="username" type="text" placeholder="请输入用户名">
+			</div>
+			<div class="form-group">
+				<input class="form-control" name="password" type="password" placeholder="请输入密码">
+			</div>	
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary"> 登录</button>
+			</div>
+		</form>
+	</div>
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4 showdoc-login-error">
+			{{ error }}
+		</div>
+	</div>
+</div>
+{% endblock %}
